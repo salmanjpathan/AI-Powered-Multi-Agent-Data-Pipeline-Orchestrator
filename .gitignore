@@ -1,0 +1,17 @@
+venv/
+
+__pycache__/
+*.pyc
+
+.idea/
+.vscode/
+
+.env
+
+data/bronze/
+data/silver/
+data/gold/
+
+.sparkStaging/
+
+*.log
