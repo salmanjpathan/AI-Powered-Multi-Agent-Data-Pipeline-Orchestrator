@@ -11,5 +11,16 @@ result = graph.invoke(state)
 
 print(result)
 
-print("\n================ AI REPORT ================\n")
+print("\n========== AI REPORT ==========\n")
+
+print("Summary:")
 print(result["ai_summary"])
+
+print("\nSeverity:")
+print(result["severity"])
+
+print("\nBusiness Impact:")
+print(result["business_impact"])
+
+print("\nRecommendations:")
+print(result["recommendations"])

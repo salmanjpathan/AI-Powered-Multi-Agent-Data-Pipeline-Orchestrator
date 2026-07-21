@@ -1,3 +1,5 @@
+import json
+
 from graph.state import PipelineState
 from llm.ollama_client import OllamaClient
 
@@ -12,12 +14,13 @@ class AIDataQualityAgent:
         prompt = f"""
 You are a Senior Data Quality Engineer.
 
-Analyze the following pipeline execution.
+Analyze the following data pipeline execution and return ONLY valid JSON.
 
-Pipeline Status:
-- Ingest: {state.ingest_status}
-- Validation: {state.validation_status}
-- Transform: {state.transform_status}
+Pipeline Details:
+- Ingest Status: {state.ingest_status}
+- Validation Status: {state.validation_status}
+- Transform Status: {state.transform_status}
+- Report Status: {state.report_status}
 
 Rows Processed:
 {state.row_count}
@@ -25,26 +28,38 @@ Rows Processed:
 Errors:
 {state.errors}
 
-Recommendations:
+Previous Recommendations:
 {state.recommendations}
 
-Return your response in the following format exactly:
+Return ONLY this JSON format:
 
-Summary:
-<summary>
+{{
+    "summary": "Brief pipeline summary",
+    "severity": "Low",
+    "business_impact": "Business impact of this execution",
+    "recommendation": "Single best recommendation"
+}}
 
-Severity:
-<Low/Medium/High>
-
-Business Impact:
-<impact>
-
-Recommendation:
-<recommendation>
+Do not include markdown.
+Do not include explanation.
+Return only valid JSON.
 """
 
         response = self.llm.generate(prompt)
 
-        state.ai_summary = response
+        try:
+            data = json.loads(response)
+
+            state.ai_summary = data.get("summary", "")
+            state.severity = data.get("severity", "")
+            state.business_impact = data.get("business_impact", "")
+
+            recommendation = data.get("recommendation", "")
+            if recommendation:
+                state.recommendations.append(recommendation)
+
+        except Exception as e:
+            state.errors.append(f"AI JSON Parse Error: {str(e)}")
+            state.ai_summary = response
 
         return state
