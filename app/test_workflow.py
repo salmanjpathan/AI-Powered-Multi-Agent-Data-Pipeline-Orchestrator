@@ -10,3 +10,6 @@ state = PipelineState(
 result = graph.invoke(state)
 
 print(result)
+
+print("\n================ AI REPORT ================\n")
+print(result["ai_summary"])

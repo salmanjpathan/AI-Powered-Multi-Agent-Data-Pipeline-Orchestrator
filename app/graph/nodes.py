@@ -4,6 +4,7 @@ from agents.ingest_agent import IngestAgent
 from agents.validator_agent import ValidatorAgent
 from agents.transform_agent import TransformAgent
 from agents.reporter_agent import ReporterAgent
+from agents.ai_dq_agent import AIDataQualityAgent
 
 def run_ingest(state: PipelineState):
     agent = IngestAgent()
@@ -21,4 +22,8 @@ def run_transform(state: PipelineState):
 
 def run_report(state: PipelineState):
     agent = ReporterAgent()
+    return agent.execute(state)
+
+def run_ai_report(state: PipelineState):
+    agent = AIDataQualityAgent()
     return agent.execute(state)

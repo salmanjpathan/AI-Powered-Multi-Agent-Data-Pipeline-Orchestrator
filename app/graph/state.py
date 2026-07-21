@@ -29,3 +29,7 @@ class PipelineState(BaseModel):
     errors: List[str] = []
 
     recommendations: List[str] = []
+
+    ai_summary: str = ""
+    severity: str = ""
+    business_impact: str = ""
