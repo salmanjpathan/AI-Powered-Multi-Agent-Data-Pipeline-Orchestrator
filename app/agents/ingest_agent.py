@@ -1,5 +1,6 @@
 from graph.state import PipelineState
 from services.metadata_service import MetadataService
+from utils.logger import logger
 
 
 class IngestAgent:
@@ -7,6 +8,7 @@ class IngestAgent:
     def execute(self, state: PipelineState) -> PipelineState:
 
         try:
+            logger.info("Ingestion started.")
 
             file_hash = MetadataService.generate_file_hash(
                 state.source_file
@@ -21,9 +23,15 @@ class IngestAgent:
 
             state.ingest_status = "SUCCESS"
 
-        except Exception as e:
+            logger.info(
+                f"Ingestion completed successfully. Rows: {row_count}"
+            )
+
+        except Exception as ex:
+
+            logger.error(f"Ingestion failed: {str(ex)}")
 
             state.ingest_status = "FAILED"
-            state.errors.append(str(e))
+            state.errors.append(str(ex))
 
         return state

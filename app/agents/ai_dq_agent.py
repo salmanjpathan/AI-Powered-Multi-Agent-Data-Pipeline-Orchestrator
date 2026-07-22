@@ -2,6 +2,7 @@ import json
 
 from graph.state import PipelineState
 from llm.ollama_client import OllamaClient
+from utils.logger import logger
 
 
 class AIDataQualityAgent:
@@ -11,7 +12,10 @@ class AIDataQualityAgent:
 
     def execute(self, state: PipelineState):
 
-        prompt = f"""
+        try:
+            logger.info("Generating AI Data Quality Report.")
+
+            prompt = f"""
 You are a Senior Data Quality Engineer.
 
 Analyze the following data pipeline execution and return ONLY valid JSON.
@@ -45,9 +49,8 @@ Do not include explanation.
 Return only valid JSON.
 """
 
-        response = self.llm.generate(prompt)
+            response = self.llm.generate(prompt)
 
-        try:
             data = json.loads(response)
 
             state.ai_summary = data.get("summary", "")
@@ -55,11 +58,21 @@ Return only valid JSON.
             state.business_impact = data.get("business_impact", "")
 
             recommendation = data.get("recommendation", "")
+
             if recommendation:
                 state.recommendations.append(recommendation)
 
-        except Exception as e:
-            state.errors.append(f"AI JSON Parse Error: {str(e)}")
-            state.ai_summary = response
+            logger.info("AI Data Quality Report generated successfully.")
 
-        return state
+            return state
+
+        except json.JSONDecodeError as ex:
+            logger.error(f"AI JSON Parse Error: {str(ex)}")
+            state.errors.append(f"AI JSON Parse Error: {str(ex)}")
+            state.ai_summary = response
+            return state
+
+        except Exception as ex:
+            logger.error(f"AI Data Quality Agent failed: {str(ex)}")
+            state.errors.append(str(ex))
+            return state

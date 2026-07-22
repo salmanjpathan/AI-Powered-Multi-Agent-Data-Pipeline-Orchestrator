@@ -2,24 +2,35 @@ import os
 import shutil
 
 from graph.state import PipelineState
+from config.settings import settings
+from utils.logger import logger
 
 
 class BronzeAgent:
 
     def execute(self, state: PipelineState):
 
-        os.makedirs("data/bronze", exist_ok=True)
+        try:
+            logger.info("Bronze layer started.")
 
-        destination = os.path.join(
-            "data",
-            "bronze",
-            os.path.basename(state.source_file)
-        )
+            os.makedirs(settings.bronze_path, exist_ok=True)
 
-        shutil.copy2(state.source_file, destination)
+            destination = os.path.join(
+                settings.bronze_path,
+                os.path.basename(state.source_file)
+            )
 
-        state.recommendations.append(
-            f"Bronze layer created: {destination}"
-        )
+            shutil.copy2(state.source_file, destination)
 
-        return state
+            state.recommendations.append(
+                f"Bronze layer created: {destination}"
+            )
+
+            logger.info(f"Bronze layer created successfully: {destination}")
+
+            return state
+
+        except Exception as ex:
+            logger.error(f"Bronze layer failed: {str(ex)}")
+            state.errors.append(str(ex))
+            return state

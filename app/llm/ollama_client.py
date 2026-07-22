@@ -1,11 +1,14 @@
 import ollama
 
+from config.settings import settings
+
 
 class OllamaClient:
 
     def generate(self, prompt: str):
+
         response = ollama.chat(
-            model="llama3.2",
+            model=settings.ollama_model,
             messages=[
                 {
                     "role": "user",

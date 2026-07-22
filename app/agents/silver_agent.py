@@ -2,41 +2,57 @@ import os
 import pandas as pd
 
 from graph.state import PipelineState
+from config.settings import settings
+from utils.logger import logger
 
 
 class SilverAgent:
 
     def execute(self, state: PipelineState):
 
-        bronze_file = os.path.join(
-            "data",
-            "bronze",
-            os.path.basename(state.source_file)
-        )
+        try:
+            logger.info("Silver layer started.")
 
-        df = pd.read_csv(bronze_file)
+            bronze_file = os.path.join(
+                settings.bronze_path,
+                os.path.basename(state.source_file)
+            )
 
-        # Remove duplicate rows
-        df = df.drop_duplicates()
+            df = pd.read_csv(bronze_file)
 
-        # Remove rows with null values
-        df = df.dropna()
+            # Remove duplicate rows
+            df = df.drop_duplicates()
 
-        # Standardize column names
-        df.columns = [col.strip().lower().replace(" ", "_") for col in df.columns]
+            # Remove rows with null values
+            df = df.dropna()
 
-        os.makedirs("data/silver", exist_ok=True)
+            # Standardize column names
+            df.columns = [
+                col.strip().lower().replace(" ", "_")
+                for col in df.columns
+            ]
 
-        silver_file = os.path.join(
-            "data",
-            "silver",
-            "silver_" + os.path.basename(state.source_file)
-        )
+            os.makedirs(settings.silver_path, exist_ok=True)
 
-        df.to_csv(silver_file, index=False)
+            silver_file = os.path.join(
+                settings.silver_path,
+                "silver_" + os.path.basename(state.source_file)
+            )
 
-        state.recommendations.append(
-            f"Silver layer created: {silver_file}"
-        )
+            df.to_csv(silver_file, index=False)
 
-        return state
+            state.transform_status = "SUCCESS"
+
+            state.recommendations.append(
+                f"Silver layer created: {silver_file}"
+            )
+
+            logger.info(f"Silver layer created successfully: {silver_file}")
+
+            return state
+
+        except Exception as ex:
+            logger.error(f"Silver layer failed: {str(ex)}")
+            state.errors.append(str(ex))
+            state.transform_status = "FAILED"
+            return state
