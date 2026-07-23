@@ -1,8 +1,8 @@
 import json
 
-from graph.state import PipelineState
-from llm.ollama_client import OllamaClient
-from utils.logger import logger
+from app.graph.state import PipelineState
+from app.llm.ollama_client import OllamaClient
+from app.utils.logger import logger
 
 
 class AIDataQualityAgent:

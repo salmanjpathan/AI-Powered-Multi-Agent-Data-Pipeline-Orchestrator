@@ -1,9 +1,9 @@
 import os
 import pandas as pd
 
-from graph.state import PipelineState
-from config.settings import settings
-from utils.logger import logger
+from app.graph.state import PipelineState
+from app.config.settings import settings
+from app.utils.logger import logger
 
 
 class GoldAgent:

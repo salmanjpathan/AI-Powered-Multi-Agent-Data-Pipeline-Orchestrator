@@ -1,6 +1,6 @@
-from graph.state import PipelineState
-from services.metadata_service import MetadataService
-from utils.logger import logger
+from app.graph.state import PipelineState
+from app.services.metadata_service import MetadataService
+from app.utils.logger import logger
 
 
 class IngestAgent:

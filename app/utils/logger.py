@@ -1,7 +1,7 @@
 import logging
 import os
 
-from config.settings import settings
+from app.config.settings import settings
 
 os.makedirs(settings.logs_path, exist_ok=True)
 
