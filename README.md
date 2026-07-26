@@ -34,38 +34,15 @@ The platform follows the **Medallion Architecture (Bronze → Silver → Gold)**
 
 ---
 
-# 🏗️ Architecture
+
+
+## 🏗️ Architecture
+
 <p align="center">
-  <img src="images/architecture.png" alt="Architecture Diagram" width="100%">
+  <img src="./images/architecture.png" alt="Architecture Diagram" width="100%">
 </p>
-```text
-                    FastAPI
-                       │
-                       ▼
-               LangGraph Workflow
-                       │
-        ┌──────────────┴──────────────┐
-        ▼                             ▼
-  Ingest Agent                Validator Agent
-        │
-        ▼
- Bronze Databricks Job
-        │
-        ▼
- Silver Databricks Job
-        │
-        ▼
- Gold Databricks Job
-        │
-        ▼
- Reporter Agent
-        │
-        ▼
- AI Data Quality Agent
-        │
-        ▼
-      API Response
-```
+
+The platform orchestrates an end-to-end AI-powered data engineering workflow using FastAPI, LangGraph, Azure Databricks, Delta Lake, and Ollama (Llama 3.2).
 
 ---
 
