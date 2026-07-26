@@ -12,6 +12,14 @@ data/bronze/
 data/silver/
 data/gold/
 
+# Raw Dataset
+data/raw/DataCoSupplyChainDataset.csv
+
+# Logs
+logs/
+*.log
+
 .sparkStaging/
 
-*.log
+# Databricks
+.databricks/
