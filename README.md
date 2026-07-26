@@ -35,7 +35,9 @@ The platform follows the **Medallion Architecture (Bronze → Silver → Gold)**
 ---
 
 # 🏗️ Architecture
-
+<p align="center">
+  <img src="images/architecture.png" alt="Architecture Diagram" width="100%">
+</p>
 ```text
                     FastAPI
                        │
