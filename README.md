@@ -1,5 +1,18 @@
 # 🚀 Enterprise Agentic AI Data Engineering Platform
 
+
+[![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-121212?style=for-the-badge)](https://www.langchain.com/langgraph)
+[![Azure Databricks](https://img.shields.io/badge/Azure%20Databricks-EF3E42?style=for-the-badge&logo=databricks&logoColor=white)](https://www.databricks.com/)
+[![PySpark](https://img.shields.io/badge/PySpark-F8991D?style=for-the-badge&logo=apachespark&logoColor=white)](https://spark.apache.org/docs/latest/api/python/)
+[![Delta Lake](https://img.shields.io/badge/Delta%20Lake-00ADD8?style=for-the-badge)](https://delta.io/)
+[![Ollama](https://img.shields.io/badge/Ollama-Llama%203.2-000000?style=for-the-badge)](https://ollama.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/salmanjpathan)
+[![License: MIT](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)](LICENSE)
+
+> **Enterprise AI-powered Data Engineering Platform built with Azure Databricks, LangGraph, FastAPI, PySpark, Delta Lake, and Ollama (Llama 3.2).**
+
 > An enterprise-style AI-powered Data Engineering platform that orchestrates end-to-end data pipelines using **LangGraph**, **Azure Databricks**, **FastAPI**, **PySpark**, and **Delta Lake**.
 
 The platform follows the **Medallion Architecture (Bronze → Silver → Gold)** and leverages **AI-powered Data Quality Analysis** using **Ollama (Llama 3.2)**.
