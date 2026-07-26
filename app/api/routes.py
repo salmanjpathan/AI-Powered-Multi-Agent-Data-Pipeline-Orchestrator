@@ -23,4 +23,19 @@ def run_pipeline(request: PipelineRequest):
 
     result = graph.invoke(state)
 
-    return result.model_dump()
+    # If LangGraph returns a PipelineState object
+    if isinstance(result, PipelineState):
+        return result.model_dump()
+
+    # If LangGraph returns a dictionary
+    if isinstance(result, dict):
+
+        # LangGraph often returns {"<node_name>": PipelineState}
+        for value in result.values():
+            if isinstance(value, PipelineState):
+                return value.model_dump()
+
+        return result
+
+    # Fallback
+    return {"result": str(result)}

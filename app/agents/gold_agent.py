@@ -1,8 +1,5 @@
-import os
-import pandas as pd
-
 from app.graph.state import PipelineState
-from app.config.settings import settings
+from app.databricks.jobs import run_gold_job
 from app.utils.logger import logger
 
 
@@ -11,42 +8,31 @@ class GoldAgent:
     def execute(self, state: PipelineState):
 
         try:
-            logger.info("Gold layer started.")
+            logger.info("Starting Gold Databricks Job...")
 
-            silver_file = os.path.join(
-                settings.silver_path,
-                "silver_" + os.path.basename(state.source_file)
-            )
+            result = run_gold_job()
 
-            df = pd.read_csv(silver_file)
+            state.gold_run_id = result["run_id"]
+            state.gold_status = result["status"]
 
-            os.makedirs(settings.gold_path, exist_ok=True)
+            if state.gold_status == "RunResultState.SUCCESS":
+                logger.info("Gold Job completed successfully.")
 
-            # Example business aggregation
-            first_column = df.columns[0]
+                state.recommendations.append(
+                    "Gold layer created successfully in Databricks."
+                )
+            else:
+                logger.error("Gold Job failed.")
 
-            gold_df = (
-                df.groupby(first_column)
-                .size()
-                .reset_index(name="record_count")
-            )
-
-            gold_file = os.path.join(
-                settings.gold_path,
-                "gold_summary.csv"
-            )
-
-            gold_df.to_csv(gold_file, index=False)
-
-            state.recommendations.append(
-                f"Gold layer created: {gold_file}"
-            )
-
-            logger.info(f"Gold layer created successfully: {gold_file}")
+                state.errors.append("Gold Databricks Job Failed")
 
             return state
 
         except Exception as ex:
-            logger.error(f"Gold layer failed: {str(ex)}")
+
+            logger.error(f"Gold Agent failed: {str(ex)}")
+
+            state.gold_status = "FAILED"
             state.errors.append(str(ex))
+
             return state

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from app.graph.state import PipelineState
 from app.utils.logger import logger
@@ -11,13 +11,14 @@ class ReporterAgent:
         try:
             logger.info("Pipeline reporting started.")
 
-            state.execution_end = datetime.now()
+            state.execution_end = datetime.now(timezone.utc)
 
             if (
-                state.ingest_status == "SUCCESS"
-                and state.validation_status == "SUCCESS"
-                and state.transform_status == "SUCCESS"
+                state.bronze_status == "RunResultState.SUCCESS"
+                and state.silver_status == "RunResultState.SUCCESS"
+                and state.gold_status == "RunResultState.SUCCESS"
             ):
+
                 state.report_status = "SUCCESS"
 
                 state.recommendations.append(
@@ -27,10 +28,11 @@ class ReporterAgent:
                 logger.info("Pipeline executed successfully.")
 
             else:
+
                 state.report_status = "FAILED"
 
                 state.recommendations.append(
-                    "Review pipeline errors before rerunning."
+                    "One or more Databricks jobs failed."
                 )
 
                 logger.warning("Pipeline execution failed.")
@@ -38,7 +40,10 @@ class ReporterAgent:
             return state
 
         except Exception as ex:
+
             logger.error(f"Reporter Agent failed: {str(ex)}")
-            state.errors.append(str(ex))
+
             state.report_status = "FAILED"
+            state.errors.append(str(ex))
+
             return state
