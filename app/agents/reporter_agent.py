@@ -20,6 +20,7 @@ class ReporterAgent:
             ):
 
                 state.report_status = "SUCCESS"
+                state.pipeline_status = "SUCCESS"
 
                 state.recommendations.append(
                     "Pipeline executed successfully."
@@ -30,6 +31,7 @@ class ReporterAgent:
             else:
 
                 state.report_status = "FAILED"
+                state.pipeline_status = "FAILED"
 
                 state.recommendations.append(
                     "One or more Databricks jobs failed."
@@ -44,6 +46,7 @@ class ReporterAgent:
             logger.error(f"Reporter Agent failed: {str(ex)}")
 
             state.report_status = "FAILED"
+            state.pipeline_status = "FAILED"
             state.errors.append(str(ex))
 
             return state

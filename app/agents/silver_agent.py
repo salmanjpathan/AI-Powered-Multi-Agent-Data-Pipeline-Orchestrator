@@ -15,6 +15,7 @@ class SilverAgent:
 
             state.silver_run_id = result["run_id"]
             state.silver_status = result["status"]
+            state.transform_status = "SUCCESS" if state.silver_status == "RunResultState.SUCCESS" else "FAILED"
 
             logger.info("Silver Job Completed Successfully")
 
@@ -26,5 +27,6 @@ class SilverAgent:
 
             state.errors.append(str(ex))
             state.silver_status = "FAILED"
+            state.transform_status = "FAILED"
 
             return state

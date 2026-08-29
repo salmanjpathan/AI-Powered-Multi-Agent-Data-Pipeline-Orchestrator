@@ -1,8 +1,14 @@
-from app.databricks.client import workspace_client
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from app.databricks.client import get_workspace_client
 
 
 def test_connection():
     try:
+        workspace_client = get_workspace_client()
         current_user = workspace_client.current_user.me()
 
         print("=" * 60)
