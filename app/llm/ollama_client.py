@@ -9,6 +9,7 @@ class OllamaClient:
 
         response = ollama.chat(
             model=settings.ollama_model,
+            format="json",
             messages=[
                 {
                     "role": "user",

@@ -49,7 +49,11 @@ Do not include explanation.
 Return only valid JSON.
 """
 
-            response = self.llm.generate(prompt)
+            response = self.llm.generate(prompt).strip()
+
+            if response.startswith("```"):
+                response = response.split("\n", 1)[1]
+                response = response.rsplit("```", 1)[0].strip()
 
             data = json.loads(response)
 

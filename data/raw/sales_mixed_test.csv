@@ -1,0 +1,101 @@
+order_id,customer_id,product,category,quantity,amount,discount_percent,order_date,delivery_date,customer_email,customer_phone,payment_method,is_returned,age
+500001,C00001,Laptop,Electronics,2,150001.0,3.5,2026-01-01,2026-01-05,customer1@example.com,+91-9876500001,Credit Card,False,25
+500002,C00002,Mouse,Accessories,3,2400.0,7.0,2026-01-02,2026-01-07,customer2@example.com,+91-9876500002,UPI,False,32
+500003,C00003,Keyboard,Accessories,4,6001.0,10.5,2026-01-03,2026-01-09,customer3@example.com,+91-9876500003,Debit Card,False,39
+500004,C00004,Monitor,Electronics,5,60003.75,14.0,2026-01-04,2026-01-11,customer4@example.com,+91-9876500004,Net Banking,True,46
+500005,C00005,Headphones,Accessories,1,3500.0,17.5,2026-01-05,2026-01-08,customer5@example.com,+91-9876500005,Cash,False,53
+500006,C00006,Office Chair,Furniture,2,29000.0,21.0,2026-01-06,2026-01-10,customer6@example.com,+91-9876500006,Credit Card,False,60
+500007,C00007,Laptop,Electronics,3,225001.5,24.5,2026-01-07,2026-01-12,customer7@example.com,+91-9876500007,UPI,False,67
+500008,C00008,Mouse,Accessories,4,3200.0,28.0,2026-01-08,2026-01-14,customer8@example.com,+91-9876500008,Debit Card,True,74
+500009,C00009,Keyboard,Accessories,5,7501.25,0.5,2026-01-09,2026-01-16,customer9@example.com,+91-9876500009,Net Banking,False,18
+500010,C00010,Monitor,Electronics,1,12000.75,4.0,2026-01-10,2026-01-13,customer10@example.com,+91-9876500010,Cash,False,25
+500011,C00011,Headphones,Accessories,2,7000.0,7.5,2026-01-11,2026-01-15,customer11@example.com,+91-9876500011,Credit Card,False,-5
+500012,C00012,Office Chair,Furniture,3,43500.0,11.0,2026-01-12,2026-01-17,customer12@example.com,+91-9876500012,UPI,True,39
+500013,C00013,Laptop,Electronics,4,300002.0,14.5,2026-01-13,2026-01-19,customer13@example.com,+91-9876500013,Debit Card,False,46
+500014,C00014,Mouse,Accessories,5,4000.0,18.0,2026-01-14,2026-01-21,customer14@example.com,+91-9876500014,Net Banking,False,53
+500015,C00015,Keyboard,Accessories,1,1500.25,21.5,2026-01-15,2026-01-18,customer15@example.com,+91-9876500015,Cash,False,60
+500016,C00016,Monitor,Electronics,2,24001.5,25.0,2026-01-16,2026-01-20,customer16@example.com,+91-9876500016,Credit Card,True,67
+500017,C00017,Headphones,Accessories,3,10500.0,28.5,2026-01-17,2026-01-22,customer17@example.com,+91-9876500017,UPI,False,74
+500018,C00018,Office Chair,Furniture,4,58000.0,1.0,2026-01-18,2026-01-24,customer18@example.com,+91-9876500018,Debit Card,False,18
+500019,C00019,Laptop,Electronics,5,375002.5,4.5,2026-01-19,2026-01-26,customer19@example.com,+91-9876500019,Net Banking,False,25
+500020,C00020,Mouse,Accessories,1,800.0,8.0,2026-01-20,2026-01-23,customer20@example.com,+91-9876500020,Cash,True,32
+500021,C00021,Keyboard,Accessories,2,3000.5,11.5,2026-01-21,2026-01-25,customer21@example.com,+91-9876500021,Credit Card,False,130
+500022,C00022,Monitor,Electronics,3,36002.25,15.0,2026-01-22,2026-01-27,customer22@example.com,+91-9876500022,UPI,False,46
+500023,C00023,Headphones,Accessories,4,14000.0,18.5,2026-01-23,2026-01-29,customer23@example.com,+91-9876500023,Debit Card,False,53
+500024,C00024,Office Chair,Furniture,5,72500.0,22.0,2026-01-24,2026-01-31,customer24@example.com,+91-9876500024,Net Banking,True,60
+500025,C00025,Laptop,Electronics,1,75000.5,25.5,2026-01-25,2026-01-28,customer25@example.com,+91-9876500025,Cash,False,67
+500026,C00026,Mouse,Accessories,2,1600.0,29.0,2026-01-26,2026-01-30,customer26@example.com,+91-9876500026,Credit Card,False,74
+500027,C00027,Keyboard,Accessories,3,4500.75,1.5,2026-01-27,2026-02-01,customer27@example.com,+91-9876500027,UPI,False,18
+500028,C00028,Monitor,Electronics,4,48003.0,5.0,2026-01-28,2026-02-03,customer28@example.com,+91-9876500028,Debit Card,True,25
+500029,C00029,Headphones,Accessories,5,17500.0,8.5,2026-01-29,2026-02-05,customer29@example.com,+91-9876500029,Net Banking,False,32
+500030,C00030,Office Chair,Furniture,1,14500.0,12.0,2026-01-30,2026-02-02,customer30@example.com,+91-9876500030,Cash,False,39
+500031,C00031,Laptop,Electronics,,150001.0,15.5,2026-01-31,2026-02-04,customer31@example.com,+91-9876500031,Credit Card,False,46
+500032,C00032,Mouse,Accessories,3,2400.0,19.0,2026-02-01,2026-02-06,customer32@example.com,+91-9876500032,UPI,True,53
+500033,C00033,Keyboard,Accessories,4,6001.0,22.5,2026-02-02,2026-02-08,customer33@example.com,+91-9876500033,Debit Card,False,60
+500034,C00034,Monitor,Electronics,5,60003.75,26.0,2026-02-03,2026-02-10,customer34@example.com,+91-9876500034,Net Banking,False,67
+500035,C00035,Headphones,Accessories,1,3500.0,29.5,2026-02-04,2026-02-07,customer35@example.com,+91-9876500035,Cash,False,74
+500036,C00036,Office Chair,Furniture,2,29000.0,2.0,2026-02-05,2026-02-09,customer36@example.com,+91-9876500036,Credit Card,True,18
+500037,C00037,Laptop,Electronics,3,225001.5,5.5,2026-02-06,2026-02-11,customer37@example.com,+91-9876500037,UPI,False,25
+500038,C00038,Mouse,Accessories,4,3200.0,9.0,2026-02-07,2026-02-13,customer38@example.com,+91-9876500038,Debit Card,False,32
+500039,C00039,Keyboard,Accessories,5,7501.25,12.5,2026-02-08,2026-02-15,customer39@example.com,+91-9876500039,Net Banking,False,39
+500040,C00040,Monitor,Electronics,1,12000.75,16.0,2026-02-09,2026-02-12,customer40@example.com,+91-9876500040,Cash,True,46
+500041,C00041,Headphones,Accessories,2,7000.0,19.5,2026-02-10,2026-02-14,,+91-9876500041,Credit Card,False,53
+500042,C00042,Office Chair,Furniture,3,43500.0,23.0,2026-02-11,2026-02-16,customer42@example.com,+91-9876500042,UPI,False,60
+500043,C00043,Laptop,Electronics,4,300002.0,26.5,2026-02-12,2026-02-18,customer43@example.com,+91-9876500043,Debit Card,False,67
+500044,C00044,Mouse,Accessories,5,4000.0,30.0,2026-02-13,2026-02-20,customer44@example.com,+91-9876500044,Net Banking,True,74
+500045,C00045,Keyboard,Accessories,1,1500.25,2.5,2026-02-14,2026-02-17,customer45@example.com,+91-9876500045,Cash,False,18
+500046,C00046,Monitor,Electronics,2,24001.5,6.0,2026-02-15,2026-02-19,customer46@example.com,+91-9876500046,Credit Card,False,25
+500047,C00047,Headphones,Accessories,3,10500.0,9.5,2026-02-16,2026-02-21,customer47@example.com,+91-9876500047,UPI,False,32
+500048,C00048,Office Chair,Furniture,4,58000.0,13.0,2026-02-17,2026-02-23,customer48@example.com,+91-9876500048,Debit Card,True,39
+500049,C00049,Laptop,Electronics,5,375002.5,16.5,2026-02-18,2026-02-25,customer49@example.com,+91-9876500049,Net Banking,False,46
+500050,C00050,Mouse,Accessories,1,800.0,20.0,2026-02-19,2026-02-22,customer50@example.com,+91-9876500050,Cash,False,53
+500051,C00051,,Accessories,2,3000.5,23.5,2026-02-20,2026-02-24,customer51@example.com,+91-9876500051,Credit Card,False,60
+500052,C00052,Monitor,Electronics,3,36002.25,27.0,2026-02-21,2026-02-26,customer52@example.com,+91-9876500052,UPI,True,67
+500053,C00053,Headphones,Accessories,4,14000.0,30.5,2026-02-22,2026-02-28,customer53@example.com,+91-9876500053,Debit Card,False,74
+500054,C00054,Office Chair,Furniture,5,72500.0,3.0,2026-02-23,2026-03-02,customer54@example.com,+91-9876500054,Net Banking,False,18
+500055,C00055,Laptop,Electronics,1,75000.5,6.5,2026-02-24,2026-02-27,customer55@example.com,+91-9876500055,Cash,False,25
+500056,C00056,Mouse,Accessories,2,1600.0,10.0,2026-02-25,2026-03-01,customer56@example.com,+91-9876500056,Credit Card,True,32
+500057,C00057,Keyboard,Accessories,3,4500.75,13.5,2026-02-26,2026-03-03,customer57@example.com,+91-9876500057,UPI,False,39
+500058,C00058,Monitor,Electronics,4,48003.0,17.0,2026-02-27,2026-03-05,customer58@example.com,+91-9876500058,Debit Card,False,46
+500059,C00059,Headphones,Accessories,5,17500.0,20.5,2026-02-28,2026-03-07,customer59@example.com,+91-9876500059,Net Banking,False,53
+500060,C00060,Office Chair,Furniture,1,14500.0,24.0,2026-03-01,2026-03-04,customer60@example.com,+91-9876500060,Cash,True,60
+500001,C00001,Laptop,Electronics,2,150001.0,3.5,2026-01-01,2026-01-05,customer1@example.com,+91-9876500001,Credit Card,False,25
+500062,C00062,Mouse,Accessories,3,2400.0,0.0,2026-03-03,2026-03-08,customer62@example.com,+91-9876500062,UPI,False,74
+500063,C00063,Keyboard,Accessories,4,6001.0,3.5,2026-03-04,2026-03-10,customer63@example.com,+91-9876500063,Debit Card,False,18
+500064,C00064,Monitor,Electronics,5,60003.75,7.0,2026-03-05,2026-03-12,customer64@example.com,+91-9876500064,Net Banking,True,25
+500065,C00065,Headphones,Accessories,1,3500.0,10.5,2026-03-06,2026-03-09,customer65@example.com,+91-9876500065,Cash,False,32
+500066,C00066,Office Chair,Furniture,2,29000.0,14.0,2026-03-07,2026-03-11,customer66@example.com,+91-9876500066,Credit Card,False,39
+500067,C00067,Laptop,Electronics,3,225001.5,17.5,2026-03-08,2026-03-13,customer67@example.com,+91-9876500067,UPI,False,46
+500068,C00068,Mouse,Accessories,4,3200.0,21.0,2026-03-09,2026-03-15,customer68@example.com,+91-9876500068,Debit Card,True,53
+500069,C00069,Keyboard,Accessories,5,7501.25,24.5,2026-03-10,2026-03-17,customer69@example.com,+91-9876500069,Net Banking,False,60
+500070,C00070,Monitor,Electronics,1,12000.75,28.0,2026-03-11,2026-03-14,customer70@example.com,+91-9876500070,Cash,False,67
+500071,C00071,Headphones,Accessories,-2,7000.0,0.5,2026-03-12,2026-03-16,customer71@example.com,+91-9876500071,Credit Card,False,74
+500072,C00072,Office Chair,Furniture,3,-100.0,4.0,2026-03-13,2026-03-18,customer72@example.com,+91-9876500072,UPI,True,18
+500073,C00073,Laptop,Electronics,4,300002.0,7.5,2026-03-14,2026-03-20,not-an-email,+91-9876500073,Debit Card,False,25
+500074,C00074,Mouse,Accessories,5,4000.0,11.0,2026/13/45,2026-03-22,customer74@example.com,+91-9876500074,Net Banking,False,32
+500075,C00075,Keyboard,Accessories,1,1500.25,14.5,2026-03-16,2026-03-19,customer75@example.com,+91-9876500075,Cash,maybe,39
+500076,C00076,Monitor,Electronics,2,24001.5,18.0,2026-03-17,2025-12-01,customer76@example.com,+91-9876500076,Credit Card,True,46
+500077,000123,Headphones,Accessories,3,10500.0,21.5,2026-03-18,2026-03-23,customer77@example.com,+91-9876500077,UPI,False,53
+500078,C00078,Office Chair,Furniture,4,58000.0,25.0,2026-03-19,2026-03-25,customer78@example.com,+91-9876500078,Debit Card,False,60
+500079,C00079,Laptop,Electronics,5,375002.5,28.5,2026-03-20,2026-03-27,customer79@example.com,+91-9876500079,Net Banking,False,67
+500080,C00080,Mouse,Accessories,1,800.0,1.0,2026-03-21,2026-03-24,customer80@example.com,+91-9876500080,Cash,True,74
+500081,C00081,Keyboard,Accessories,2,3000.5,4.5,2026-03-22,2026-03-26,customer81@example.com,+91-9876500081,Credit Card,False,18
+500082,C00082,Monitor,Electronics,3,36002.25,8.0,2026-03-23,2026-03-28,customer82@example.com,+91-9876500082,UPI,False,25
+500083,C00083,Headphones,Accessories,4,14000.0,11.5,2026-03-24,2026-03-30,customer83@example.com,+91-9876500083,Debit Card,False,32
+500084,C00084,Office Chair,Furniture,5,72500.0,15.0,2026-03-25,2026-04-01,customer84@example.com,+91-9876500084,Net Banking,True,39
+500085,C00085,Laptop,Electronics,1,75000.5,18.5,2026-03-26,2026-03-29,customer85@example.com,+91-9876500085,Cash,False,46
+500086,C00086,Mouse,Accessories,2,1600.0,22.0,2026-03-27,2026-03-31,customer86@example.com,+91-9876500086,Credit Card,False,53
+500087,C00087,Keyboard,Accessories,3,4500.75,25.5,2026-03-28,2026-04-02,customer87@example.com,+91-9876500087,UPI,False,60
+500088,C00088,Monitor,Electronics,4,48003.0,29.0,2026-03-29,2026-04-04,customer88@example.com,+91-9876500088,Debit Card,True,67
+500089,C00089,Headphones,Accessories,5,17500.0,1.5,2026-03-30,2026-04-06,customer89@example.com,+91-9876500089,Net Banking,False,74
+500090,C00090,Office Chair,Furniture,1,14500.0,5.0,2026-03-31,2026-04-03,customer90@example.com,+91-9876500090,Cash,False,18
+500091,C00091,Laptop,Electronics,2,150001.0,8.5,2026-04-01,2026-04-05,customer91@example.com,+91-9876500091,Credit Card,False,25
+500092,C00092,Mouse,Accessories,3,2400.0,12.0,2026-04-02,2026-04-07,customer92@example.com,+91-9876500092,UPI,True,32
+500093,C00093,Keyboard,Accessories,4,6001.0,15.5,2026-04-03,2026-04-09,customer93@example.com,+91-9876500093,Debit Card,False,39
+500094,C00094,Monitor,Electronics,5,60003.75,19.0,2026-04-04,2026-04-11,customer94@example.com,+91-9876500094,Net Banking,False,46
+500095,C00095,Headphones,Accessories,1,3500.0,22.5,2026-04-05,2026-04-08,customer95@example.com,+91-9876500095,Cash,False,53
+500096,C00096,Office Chair,Furniture,2,29000.0,26.0,2026-04-06,2026-04-10,customer96@example.com,+91-9876500096,Credit Card,True,60
+500097,C00097,Laptop,Electronics,3,225001.5,29.5,2026-04-07,2026-04-12,customer97@example.com,+91-9876500097,UPI,False,67
+500098,C00098,Mouse,Accessories,4,3200.0,2.0,2026-04-08,2026-04-14,customer98@example.com,+91-9876500098,Debit Card,False,74
+500099,C00099,Keyboard,Accessories,5,7501.25,5.5,2026-04-09,2026-04-16,customer99@example.com,+91-9876500099,Net Banking,False,18
+500100,C00100,Monitor,Electronics,1,12000.75,9.0,2026-04-10,2026-04-13,customer100@example.com,+91-9876500100,Cash,True,25

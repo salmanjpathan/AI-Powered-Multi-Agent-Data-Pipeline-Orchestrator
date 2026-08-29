@@ -1,6 +1,6 @@
 import time
 
-from app.databricks.client import workspace_client
+from app.databricks.client import get_workspace_client
 
 BRONZE_JOB_ID = 913826646441028
 SILVER_JOB_ID = 734858437358560
@@ -9,6 +9,7 @@ GOLD_JOB_ID = 747976443992049
 
 def run_job(job_id, job_name):
 
+    workspace_client = get_workspace_client()
     run = workspace_client.jobs.run_now(job_id=job_id)
 
     run_id = run.run_id
