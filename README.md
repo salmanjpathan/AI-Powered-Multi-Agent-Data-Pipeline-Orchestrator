@@ -1,6 +1,5 @@
 # 🚀 Enterprise Agentic AI Data Engineering Platform
 
-
 [![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-121212?style=for-the-badge)](https://www.langchain.com/langgraph)
@@ -34,7 +33,33 @@ The platform follows the **Medallion Architecture (Bronze → Silver → Gold)**
 
 ---
 
+## ⚡ Quick Start (30 seconds)
 
+```bash
+# 1. Clone
+git clone https://github.com/salmanjpathan/AI-Powered-Multi-Agent-Data-Pipeline-Orchestrator.git
+cd AI-Powered-Multi-Agent-Data-Pipeline-Orchestrator
+
+# 2. Install
+python -m venv .venv
+.venv\Scripts\Activate.ps1  # Windows
+pip install -r requirements.txt
+
+# 3. Configure Databricks
+echo DATABRICKS_HOST=your-workspace-url > .env
+echo DATABRICKS_TOKEN=your-token >> .env
+
+# 4. Start Services (in separate terminals)
+ollama serve              # Terminal 1: Ollama LLM
+uvicorn app.main:app --reload  # Terminal 2: FastAPI
+
+# 5. Open Browser
+# http://127.0.0.1:8000/docs
+```
+
+👉 **Full Setup Guide**: See [SETUP_AND_RUNBOOK.md](SETUP_AND_RUNBOOK.md) for detailed installation & troubleshooting
+
+---
 
 ## 🏗️ Architecture
 
@@ -48,17 +73,17 @@ The platform orchestrates an end-to-end AI-powered data engineering workflow usi
 
 # 🛠️ Tech Stack
 
-| Category | Technology |
-|----------|------------|
-| Language | Python |
-| Framework | FastAPI |
-| AI Framework | LangGraph |
-| LLM | Ollama (Llama 3.2) |
-| Data Processing | PySpark |
-| Data Platform | Azure Databricks |
-| Storage | Delta Lake |
-| APIs | FastAPI |
-| Version Control | Git & GitHub |
+| Category        | Technology         |
+| --------------- | ------------------ |
+| Language        | Python             |
+| Framework       | FastAPI            |
+| AI Framework    | LangGraph          |
+| LLM             | Ollama (Llama 3.2) |
+| Data Processing | PySpark            |
+| Data Platform   | Azure Databricks   |
+| Storage         | Delta Lake         |
+| APIs            | FastAPI            |
+| Version Control | Git & GitHub       |
 
 ---
 
@@ -202,10 +227,10 @@ http://127.0.0.1:8000/docs
 
 Available APIs
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /health | Health Check |
-| POST | /run-pipeline | Execute Complete Pipeline |
+| Method | Endpoint      | Description               |
+| ------ | ------------- | ------------------------- |
+| GET    | /health       | Health Check              |
+| POST   | /run-pipeline | Execute Complete Pipeline |
 
 ---
 
@@ -229,18 +254,93 @@ AI Data Quality
 
 ---
 
+# 🎬 Demo & Example
+
+## API Documentation (Interactive)
+
+Once the FastAPI server is running, visit:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+Swagger UI provides interactive endpoint testing with real request/response examples.
+
+## Example: Run Pipeline
+
+**POST Request:**
+
+```bash
+curl -X POST "http://127.0.0.1:8000/run-pipeline" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "pipeline_id": "DEMO_001",
+    "source_file": "data/raw/sales.csv",
+    "source_type": "csv"
+  }'
+```
+
+**Expected Response (Success):**
+
+```json
+{
+  "pipeline_id": "DEMO_001",
+  "status": "SUCCESS",
+  "execution_time_seconds": 45.23,
+  "ingest_status": "SUCCESS",
+  "bronze_status": "SUCCESS",
+  "validation_status": "SUCCESS",
+  "transform_status": "SUCCESS",
+  "gold_status": "SUCCESS",
+  "ai_insights": {
+    "data_quality_summary": "Dataset contains high-quality transactional data",
+    "data_quality_score": 95,
+    "issues_detected": 0,
+    "recommendations": "Data is ready for analytics"
+  }
+}
+```
+
+## Test Datasets Included
+
+The project comes with 4 pre-configured test datasets:
+
+| Dataset                | Size     | Purpose         | Location                          |
+| ---------------------- | -------- | --------------- | --------------------------------- |
+| sales.csv              | 5 rows   | Quick demo      | `data/raw/sales.csv`              |
+| sales_large.csv        | 1M rows  | Stress test     | `data/raw/sales_large.csv`        |
+| sales_quality_test.csv | 1K rows  | Error detection | `data/raw/sales_quality_test.csv` |
+| sales_mixed_test.csv   | 100 rows | Multi-type data | `data/raw/sales_mixed_test.csv`   |
+
+## Health Check
+
+**GET Request:**
+
+```bash
+curl http://127.0.0.1:8000/health
+```
+
+**Expected Response:**
+
+```json
+{
+  "status": "healthy",
+  "timestamp": "2026-08-30T10:30:45"
+}
+```
+
+---
+
 # 📷 Screenshots
 
-> Screenshots will be added in the next release.
+Screenshots coming soon:
 
-Planned screenshots
-
-- FastAPI Swagger UI
-- Databricks Jobs
-- Bronze Layer
-- Silver Layer
-- Gold Layer
-- AI Data Quality Report
+- FastAPI Swagger UI (/docs)
+- Databricks Jobs Dashboard
+- Bronze Layer Data
+- Silver Layer Transformations
+- Gold Layer Aggregations
+- AI Quality Report Generation
 
 ---
 
